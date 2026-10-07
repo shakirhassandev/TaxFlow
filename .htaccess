@@ -1,0 +1,12 @@
+DirectoryIndex index.html
+Options -Indexes
+AddType application/manifest+json .webmanifest
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|png|webmanifest)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=300"
+  </FilesMatch>
+</IfModule>
+ErrorDocument 404 /404.html
